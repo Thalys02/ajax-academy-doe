@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../styles/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+
+    <title>Doe</title>
+  </head>
+  <body>
+    <section class="section-main">
+      <div class="container-lottie">
+        <lottie-player
+          src="https://assets3.lottiefiles.com/packages/lf20_lsfhjhqp.json"
+          class="lottie-file"
+          background="transparent"
+          speed="1"
+          loop
+          autoplay
+        ></lottie-player>
+        <div class="container-lottie-data">
+          <h5>Doe sangue, salve vidas!</h5>
+          <span>Campanha de doação de sangue - 2021</span>
+        </div>
+      </div>
+    </section>
+    <section class="container-section-form">
+      <div class="container-section-form-element">
+        <div class="container-positive-donation">
+          <lottie-player
+            src="https://assets8.lottiefiles.com/packages/lf20_8idh35pq.json"
+            background="transparent"
+            speed="1"
+            style="width: 300px; height: 300px"
+            loop
+            autoplay
+          ></lottie-player>
+        </div>
+        <div class="container-form">
+          <div class="container-data">
+            <span class="material-icons icon">label_important</span>
+            <h3>A sua doação importa</h3>
+            <p>
+              Mais de 38.000 doações são necessárias todos os dias. Apenas 1,9%
+              da população brasileira doa sangue.
+            </p>
+          </div>
+          <div class="container-topic">
+            <span class="material-icons icon"> add_circle_outline</span>
+            <p>Entre na lista de doadores:</p>
+          </div>
+          <form>
+            <input type="text" title="Nome do doador" placeholder="Nome" id="name" />
+            <input type="text" title="Email do doador" placeholder="Email" id="email" />
+            <select class="selectType" type="text" title="Tipo sanguíneo" placeholder="Tipo sanguíneo" id="type">
+              <option value="A+" selected>A+</option>
+              <option value="A+">A-</option>
+              <option value="A+">B+</option>
+              <option value="A+">B-</option>
+              <option value="A+">AB+</option>
+              <option value="A+">AB-</option>
+              <option value="A+">O+</option>
+              <option value="A+">O-</option>
+            </select>
+            <button type="button" onclick="HandleConfirm()">Quero ajudar</button>
+          </form>
+          <div>
+            <div class="container-topic">
+              <span class="material-icons icon">water_drop</span>
+              <span>Últimos doadores: </span>
+            </div>
+            <ul id="list"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="../script/index.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  </body>
+</html>
