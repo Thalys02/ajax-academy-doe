@@ -5,8 +5,13 @@ var type = document.getElementById("type");
 var listStorage = [];
 
 const HandleConfirm = () => {
-  debugger;
   var objects = { name: people.value, email: email.value, type: type.value };
+
+  var objectsJson = JSON.parse(localStorage.getItem("donator"));
+
+  if (objectsJson != null) {
+    listStorage = objectsJson.filter((a) => a);
+  }
 
   if (objects.name && objects.email && objects.type) {
     var ul = document.getElementById("list");
@@ -24,22 +29,46 @@ const HandleConfirm = () => {
       Name: objects.name,
       Inclusion_date: Date.now(),
     };
-    listStorage.push(donator);
 
-    localStorage.setItem("donator", JSON.stringify(listStorage));
+    if (objectsJson != null) {
+      listStorage.push(donator);
+      localStorage.setItem(
+        "donator",
+        JSON.stringify(listStorage)
+      );
+    }else{
+      listStorage.push(donator);
+      localStorage.setItem(
+        "donator",
+        JSON.stringify(listStorage)
+      );
+    }
 
     people.value = "";
     email.value = "";
     type.value = "";
+
+    sweetAlert(
+      'Doador adicionado',
+      '',
+      'success'
+    )
   } else {
-    alert("Por favor, preencha todos os campos!");
+    sweetAlert(
+      'Ohh noo',
+      "Por favor, preencha todos os campos!",
+      'error'
+    )
   }
+
 };
 
 window.onload = function GetDonators() {
-  debugger;
   var objectsJson = JSON.parse(localStorage.getItem("donator"));
- const newObjectsJson = objectsJson.filter((a) => a);
+  const newObjectsJson = objectsJson != null ? objectsJson.filter((a) => a) : 0;
+
+  listStorage.push(newObjectsJson);
+
   for (let index = 0; index < newObjectsJson.length; index++) {
     var ul = document.getElementById("list");
 
@@ -53,4 +82,5 @@ window.onload = function GetDonators() {
     li.appendChild(span);
     span.appendChild(text);
   }
+  listStorage = [];
 };
